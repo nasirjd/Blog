@@ -9,4 +9,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.Domain\Blog.Domain.csproj" />
+    <ProjectReference Include="..\Blog.Repository\Blog.Repository.csproj" />
+    <ProjectReference Include="..\Blog.Service\Blog.Service.csproj" />
+  </ItemGroup>
+
 </Project>

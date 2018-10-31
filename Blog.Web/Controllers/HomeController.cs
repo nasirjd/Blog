@@ -3,41 +3,29 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Service;
+using Blog.Service.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Blog.Web.Models;
+using Blog.Web.ViewModels;
 
 namespace Blog.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPostService _postService;
+
+        public HomeController(IPostService postService)
+        {
+            _postService = postService;
+        }
+
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new MainPageViewModel
+            {
+                Posts = _postService.GetPosts(5),
+            });
         }
     }
 }
