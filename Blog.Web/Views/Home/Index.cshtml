@@ -9,15 +9,21 @@
 
     </Post>
     
-    
-
     @foreach (var post in Model.Posts)
     {
-        <div class="post">@post.Title  -  
-        
-            <h1>@post.Id</h1>
-            <img src="@post.ImageUrl" />
-        </div>
+        <article>
+            <a href="http://google.com?q=hoto">
+                <div class="post-card-image" style="background-image: url('@post.ImageUrl');">
+
+
+
+                </div>
+                <h1>@post.Id</h1>
+            </a>
+            
+            
+
+        </article>
     }
     
 
