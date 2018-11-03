@@ -61,8 +61,7 @@ namespace Blog.Web
 
         private void ManageDependencyInjection(IServiceCollection services)
         {
-            services.AddScoped<IPostService,MockPostService>();
-                
+            services.AddScoped<IPostService,MockPostService>();       
         }
     }
 }
